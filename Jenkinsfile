@@ -4,7 +4,8 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 script {
-                    git branch: 'Orange', credentialsId: '3ffa1bf6-3dd0-47fd-b1fe-aa7fc54abccb', url: 'https://github.com/anasaljboor/Orange.git' 
+                    git branch: 'main',
+                credentialsId: '3ffa1bf6-3dd0-47fd-b1fe-aa7fc54abccb', url: 'https://github.com/anasaljboor/devops-k8s-jenkins.git'
      
                 }
             }
