@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    networks:
+     - frontend
+     
+
+    ports:
+      - 8089:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: anas
+      WORDPRESS_DB_PASSWORD: anas
+      WORDPRESS_DB_NAME: anasdb
+    volumes:
+      - wordpress:/var/www/html
+  
+    
+
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: anasdb
+      MYSQL_USER: anas
+      MYSQL_PASSWORD: anas
+      MYSQL_ROOT_PASSWORD: anas
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - frontend
+networks:
+  frontend:  
+volumes:
+  wordpress:
+  db:
